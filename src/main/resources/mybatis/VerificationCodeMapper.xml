@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.VerificationCodeMapper">
+	<select id='findById' resultMap='VerificationCode'  parameterType='java.lang.String'>
+		select id,code,status,create_user,create_date,update_user,update_date,record_id,remark from verification_code  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='VerificationCode' >
+		${value}
+	</select>
+	<select id='findAll' resultMap='VerificationCode' >
+		select id,code,status,create_user,create_date,update_user,update_date,record_id,remark from verification_code
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.VerificationCode'>
+		insert into verification_code(id,code,status,create_user,create_date,update_user,update_date,record_id,remark)
+		values(#{id},#{code},#{status},#{createUser},#{createDate},#{updateUser},#{updateDate},#{recordId},#{remark})
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.VerificationCode'>
+		update verification_code set code=#{code},status=#{status},create_user=#{createUser},create_date=#{createDate},update_user=#{updateUser},update_date=#{updateDate},record_id=#{recordId},remark=#{remark} where id=#{id}
+	</update>
+	<update id='updateUsedByRecordId' parameterType='com.gznytm.entity.VerificationCode'>
+		update verification_code set  status=#{status},update_user=#{updateUser},update_date=#{updateDate} where record_id=#{recordId}
+	</update>
+	<update id='updateUnusedByRecordId' parameterType='com.gznytm.entity.VerificationCode'>
+		update verification_code set  status=#{status},update_user=#{updateUser},update_date=#{updateDate} where record_id=#{recordId}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from verification_code where  ${value}
+	</delete>
+	<delete id='deleteByRecordId' parameterType='java.lang.String'>
+		delete from verification_code where   record_id=#{recordId}
+	</delete>
+	
+	<resultMap type='com.gznytm.entity.VerificationCode' id='VerificationCode'>
+		<result property='id' column='id'/>
+		<result property='code' column='code'/>
+		<result property='status' column='status'/>
+		<result property='createUser' column='create_user'/>
+		<result property='createDate' column='create_date'/>
+		<result property='updateUser' column='update_user'/>
+		<result property='updateDate' column='update_date'/>
+		<result property='recordId' column='record_id'/>
+		<result property='remark' column='remark'/>
+	</resultMap>
+</mapper>

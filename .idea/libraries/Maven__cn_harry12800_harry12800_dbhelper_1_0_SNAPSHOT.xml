@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.harry12800:harry12800.dbhelper:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/cn/harry12800/harry12800.dbhelper/1.0-SNAPSHOT/harry12800.dbhelper-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.m2/repository/cn/harry12800/harry12800.dbhelper/1.0-SNAPSHOT/harry12800.dbhelper-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.m2/repository/cn/harry12800/harry12800.dbhelper/1.0-SNAPSHOT/harry12800.dbhelper-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

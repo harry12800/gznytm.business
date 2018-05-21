@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE configuration SYSTEM "online.dtd">-->
+<!--xmlns="http://www.w3school.com.cn"
+ xsi:schemaLocation="online.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-->
+<configuration version="0.1.20170717" author="harry12800">
+	<resources>
+	<!-- 	<resource name='1.db' realname='gznytm.business.jar'  url='http://192.168.0.78:8080/pharm/s/1.db'  path='lib'/> -->
+		<!-- <resource name='2.db' realname='harry12800.tools.jar'  url='http://192.168.0.78:8080/pharm/s/2.db'  path='lib'/>
+		<resource name='3.db' realname='harry12800.j2se.jar'  url='http://192.168.0.78:8080/pharm/s/3.db'  path='lib'/>  -->
+		
+	 	<resource name='1.db' realname='gznytm.business.jar'  url='s/1.db'  path='lib'/>
+		<resource name='2.db' realname='harry12800.tools.jar'  url='s/2.db'  path='lib'/>
+		<resource name='3.db' realname='harry12800.j2se.jar'  url='s/3.db'  path='lib'/>
+	</resources>
+	<description>
+		<properties value="1、开放显示所有功能，提高修改数据性能。"/>
+		<properties value="2、增加显示，隐藏快捷键Alt+C/Alt+V。"/>
+		<properties value="3、支持在线更新功能！"/>
+		<properties value="4、提供新版本功能提示。"/>
+		<properties value="5、修复登录功能！"/>
+		<properties value="6、样式更新！"/>
+	</description>
+</configuration>

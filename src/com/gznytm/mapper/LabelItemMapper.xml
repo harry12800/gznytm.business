@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.LabelItemMapper">
+	<select id='findById' resultMap='LabelItem'  parameterType='java.lang.String'>
+		select id,name,see_times,favorite_times,type,image_url1,image_url2,parent_id,description,remark,sort,url,target from label_item  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='LabelItem' >
+		${value}
+	</select>
+	<select id='findAll' resultMap='LabelItem' >
+		select id,name,see_times,favorite_times,type,image_url1,image_url2,parent_id,description,remark,sort,url,target from label_item
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.LabelItem'>
+		insert into label_item(id,name,see_times,favorite_times,type,image_url1,image_url2,parent_id,description,remark,sort,url,target)
+		values(#{id},#{name},#{seeTimes},#{favoriteTimes},#{type},#{imageUrl1},#{imageUrl2},#{parentId},#{description},#{remark},#{sort},#{url},#{target})
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.LabelItem'>
+		update label_item set name=#{name},see_times=#{seeTimes},favorite_times=#{favoriteTimes},type=#{type},image_url1=#{imageUrl1},image_url2=#{imageUrl2},parent_id=#{parentId},description=#{description},remark=#{remark},sort=#{sort},url=#{url},target=#{target} where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from label_item where  ${value}
+	</delete>
+	<resultMap type='com.gznytm.entity.LabelItem' id='LabelItem'>
+		<result property='id' column='id'/>
+		<result property='name' column='name'/>
+		<result property='seeTimes' column='see_times'/>
+		<result property='favoriteTimes' column='favorite_times'/>
+		<result property='type' column='type'/>
+		<result property='imageUrl1' column='image_url1'/>
+		<result property='imageUrl2' column='image_url2'/>
+		<result property='parentId' column='parent_id'/>
+		<result property='description' column='description'/>
+		<result property='remark' column='remark'/>
+		<result property='sort' column='sort'/>
+		<result property='url' column='url'/>
+		<result property='target' column='target'/>
+	</resultMap>
+</mapper>

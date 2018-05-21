@@ -1,0 +1,13 @@
+<!ELEMENT configuration (#PCDATA,resources,description)>
+<!ATTLIST configuration author (harry12800) "harry12800">
+<!ATTLIST configuration version #REQUIRED>
+<!ATTLIST configuration xsi:schemaLocation #IMPLIED>
+<!ELEMENT resources (resource+)>
+<!ELEMENT resource (#PCDATA)>
+<!ATTLIST resource path CDATA #REQUIRED>
+<!ATTLIST resource name CDATA #REQUIRED>
+<!ATTLIST resource realname CDATA #REQUIRED>
+<!ATTLIST resource url CDATA #REQUIRED>
+<!ELEMENT description (properties+)>
+<!ELEMENT properties (#PCDATA)>
+<!ATTLIST properties value CDATA #REQUIRED>

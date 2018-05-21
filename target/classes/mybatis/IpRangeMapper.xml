@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.IpRangeMapper">
+	<select id="findAll" resultType="com.gznytm.entity.IpRange"
+		parameterType="int">
+		select * from ip
+	</select>
+	<select id="findById" resultType="com.gznytm.entity.IpRange"
+		parameterType="java.lang.String">
+		select * from ip where id= #{id}
+	</select>
+	<select id="findByIp" resultType="String"
+		parameterType="java.lang.Long">
+		select addr from ip where startip  &lt;= #{id} and endip &gt;= #{id}
+	</select>
+	<update id="updateOther" parameterType="com.gznytm.entity.IpRange">
+		update business_order set size
+		= #{size},material=
+		#{material},old_order_code=#{old_order_code},unzero_code=#{unzero_code},cutting_die_code=#{cutting_die_code}
+		where id =#{id}
+	</update>
+	<insert id="insert" parameterType="com.gznytm.entity.IpRange">
+		insert into
+		ip(startip,endip,addr)
+		values(#{startip},#{endip},#{addr})
+	</insert>
+	<update id="update">
+		update business_order set
+		orderid=#{orderid},billing_time=#{billing_time},require_time=#{require_time},
+		material_code=#{material_code},number=#{number},size=#{size},color=#{color},
+		material=#{material},unzero_code=#{unzero_code}, cutting_die_code=#{cutting_die_code},
+		remark=#{remark},last_time=#{last_time},description=#{description},customer=#{customer}
+		where id = #{id}
+	</update>
+	 <delete id="deleteBySql" parameterType="java.lang.String">
+		 delete from business_order where ${value}
+	 </delete>
+	 <select id="executeSql"  parameterType="java.lang.String" resultType="com.gznytm.entity.IpRange">
+	  ${value}
+	  </select>
+	 <select id="findByMeriratlCode" parameterType="java.lang.String" resultType="com.gznytm.entity.IpRange">
+	  	select * from business_order where material_code =#{value} or old_order_code=#{value} order by billing_time desc
+	 </select>
+	 <update id="updateNumber" parameterType="com.gznytm.entity.IpRange">
+		update business_order set  number=#{number} 
+		where id = #{id}
+	</update>
+	
+	<update id="updateMaterialcodeDesc" parameterType="com.gznytm.entity.IpRange">
+		update business_order set  description=#{description},	old_order_code=#{old_order_code} 
+			where material_code = #{material_code}
+	</update>
+	<update id="updateDesc" parameterType="com.gznytm.entity.IpRange">
+		update business_order set  description=#{description} 
+			where material_code = #{material_code}
+	</update>
+	<update id="updateIsPrintStatus"  parameterType="java.lang.String" >
+		update business_order set status='已打印' where id=#{value}
+	</update>
+	<update id="updateRed"  parameterType="java.lang.String" >
+		update business_order set color_flag=1 where id=#{value}
+	</update>
+	<update id="updateBlue"  parameterType="java.lang.String" >
+		update business_order set color_flag=2 where id=#{value}
+	</update>
+	<update id="updateNormal"  parameterType="java.lang.String" >
+		update business_order set color_flag=0 where id=#{value}
+	</update>
+</mapper>

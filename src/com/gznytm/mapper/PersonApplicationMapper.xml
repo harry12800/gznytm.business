@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.PersonApplicationMapper">
+	<select id='findById' resultMap='PersonApplication'  parameterType='java.lang.String'>
+		select ID,PERSON_ID,APPLICATION_ID from person_application  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='PersonApplication' >
+		${value}
+	</select>
+	<select id='findAll' resultMap='PersonApplication' >
+		select ID,PERSON_ID,APPLICATION_ID from person_application
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.PersonApplication'>
+		insert into person_application(ID,PERSON_ID,APPLICATION_ID)
+		values(#{id},#{personId},#{applicationId})
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.PersonApplication'>
+		update person_application set PERSON_ID=#{personId},APPLICATION_ID=#{applicationId} where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from person_application where  ${value}
+	</delete>
+	<resultMap type='com.gznytm.entity.PersonApplication' id='PersonApplication'>
+		<result property='id' column='ID'/>
+		<result property='personId' column='PERSON_ID'/>
+		<result property='applicationId' column='APPLICATION_ID'/>
+	</resultMap>
+</mapper>

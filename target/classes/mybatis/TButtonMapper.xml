@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.TButtonMapper">
+	<select id='findById' resultMap='TButton'  parameterType='java.lang.String'>
+		select  ID,PAGE_ID,NAME,TYPE,BUTTON_ID,APPLICATION_ID,PAGE_CODE,PAGE_NAME,OPERATION_ID from t_button  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='TButton' >
+		 ${value}
+	</select>
+	<select id='findAll' resultMap='TButton' >
+		select ID,IDPAGE_ID,PAGE_IDNAME,NAMETYPE,TYPEBUTTON_ID,BUTTON_IDAPPLICATION_ID,APPLICATION_IDPAGE_CODE,PAGE_CODEPAGE_NAME,PAGE_NAME from t_button
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.TButton'>
+		insert into t_button(
+		 ID,  PAGE_ID,  NAME,  TYPE,  BUTTON_ID,  APPLICATION_ID,  PAGE_CODE,  PAGE_NAME,   OPERATION_ID)
+		values(#{id},
+		#{pageId},
+		#{name},
+		#{type},
+		#{buttonId},
+		#{applicationId},
+		#{pageCode},
+		#{pageName},
+		#{operationId}
+		)
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.TButton'>
+		update t_button set
+		 ID=#{id},
+		 		 PAGE_ID=#{pageId},
+		 		 NAME=#{name},
+		 		 TYPE=#{type},
+		 		 BUTTON_ID=#{buttonId},
+		 		 APPLICATION_ID=#{applicationId},
+		 		 PAGE_CODE=#{pageCode},
+		 		 PAGE_NAME=#{pageName},
+		 		 
+		 OPERATION_ID=#{operationId}
+		 where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from t_button where  #{value}
+	</delete>
+	<resultMap type='com.gznytm.entity.TButton' id='TButton'>
+			<result property='id' column='ID'/>
+			<result property='pageId' column='PAGE_ID'/>
+			<result property='name' column='NAME'/>
+			<result property='type' column='TYPE'/>
+			<result property='buttonId' column='BUTTON_ID'/>
+			<result property='applicationId' column='APPLICATION_ID'/>
+			<result property='pageCode' column='PAGE_CODE'/>
+			<result property='pageName' column='PAGE_NAME'/>
+			<result property='operationId' column='OPERATION_ID'/>
+	</resultMap>
+</mapper>
+	

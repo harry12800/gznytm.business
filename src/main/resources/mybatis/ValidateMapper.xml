@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.ValidateMapper">
+	<insert id="insertBySql" parameterType="java.lang.String">
+		 ${value}
+	</insert>
+	 <delete id="deleteBySql" parameterType="java.lang.String">
+		  ${value}
+	 </delete>
+	 <select id="selectBySql"  parameterType="java.lang.String" resultType="java.lang.Integer">
+	  		${value}
+	  </select>
+	   <update id="updateBySql"  parameterType="java.lang.String">
+	  		${value}
+	  </update>
+</mapper>

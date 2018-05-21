@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.BusinessOrderMapper">
+	<select id="findAll" resultMap="BusinessOrder"
+		parameterType="int">
+		select * from business_order
+	</select>
+	<select id="findById" resultMap="BusinessOrder"
+		parameterType="java.lang.String">
+		select * from business_order where id
+		= #{id}
+	</select>
+	<update id="updateNumber" parameterType="com.gznytm.entity.BusinessOrder">
+		update business_order set req_count
+		= #{reqCount} 
+		where id =#{id}
+	</update>
+	<update id="updateOther" parameterType="com.gznytm.entity.BusinessOrder">
+		update business_order set material_size
+		= #{materialSize},material=
+		#{material},old_order_code=#{oldOrderCode},color=#{color},unzero_code=#{unzeroCode},cutting_die_code=#{cuttingDieCode}
+		where id =#{id}
+	</update>
+	<insert id="insert" parameterType="com.gznytm.entity.BusinessOrder">
+		insert into
+		business_order(id,billing_time,old_order_code,require_time,material_code,
+		req_count,material_size, material,unzero_code, cutting_die_code,color, remark,
+		imp_time, last_time,description,excel_index,orderid,customer)
+		values(#{id},#{billingTime},#{oldOrderCode},#{requireTime},#{materialCode},
+		#{reqCount},#{materialSize}, #{material},#{unzeroCode},
+		#{cuttingDieCode},#{color},#{ remark},#{
+		impTime},#{lastTime},#{description},#{excelIndex},#{orderid},#{customer})
+	</insert>
+	<update id="update">
+		update business_order set
+		orderid=#{orderid},billing_time=#{billingTime},require_time=#{requireTime},
+		material_code=#{materialCode},req_count=#{reqCount},material_size=#{materialSize},color=#{color},
+		material=#{material},unzero_code=#{unzeroCode}, cutting_die_code=#{cuttingDieCode},
+		remark=#{remark},last_time=#{lastTime},description=#{description},customer=#{customer}
+		where id = #{id}
+	</update>
+	 <delete id="deleteBySql" parameterType="java.lang.String">
+		 delete from business_order where ${value}
+	 </delete>
+	 <select id="executeSql"  parameterType="java.lang.String"  resultMap="BusinessOrder">
+	  ${value}
+	  </select>
+	   <select id="searchSql"  parameterType="com.gznytm.entity.BusinessOrder" resultMap="BusinessOrder">
+	   select * from business_order
+		   <where>  
+	            <if test="materialCode != null">  
+	                material_code like CONCAT('%','${materialCode}','%' ) 
+	            </if>  
+	            <if test="oldOrderCode != null">  
+	                and old_order_code like CONCAT('%','${oldOrderCode}','%' )  
+	            </if>  
+	             <if test="description!= null">  
+	                and description like CONCAT('%','${description}','%' )  
+	            </if>  
+	              <if test="materialSize != null">  
+	                and material_size like CONCAT('%','${materialSize}','%' )  
+	            </if> 
+	            <if test="material != null">  
+	                and material like CONCAT('%','${material}','%' )  
+	            </if>  
+	               <if test="unzeroCode != null">  
+	                and unzero_code like CONCAT('%','${unzeroCode}','%' )  
+	            </if> 
+	             <if test="cuttingDieCode != null">  
+	                and cutting_die_code like CONCAT('%','${cuttingDieCode}','%' )  
+	            </if> 
+	             <if test="customer != null">  
+	                and customer like CONCAT('%','${customer}','%' )  
+	            </if> 
+	        </where>
+	 order by billing_time desc
+	  </select>
+	 <select id="findByMeriratlCode" parameterType="java.lang.String" resultMap="BusinessOrder">
+	  	select * from business_order where material_code =#{value} or old_order_code=#{value} order by billing_time desc
+	 </select>
+	 <update id="updatereq_count" parameterType="com.gznytm.entity.BusinessOrder">
+		update business_order set  req_count=#{reqCount} 
+		where id = #{id}
+	</update>
+	
+	<update id="updateMaterialcodeDesc" parameterType="com.gznytm.entity.BusinessOrder">
+		update business_order set  description=#{description},	old_order_code=#{oldOrderCode} 
+			where material_code = #{materialCode}
+	</update>
+	<update id="updateDesc" parameterType="com.gznytm.entity.BusinessOrder">
+		update business_order set  description=#{description} 
+			where material_code = #{materialCode}
+	</update>
+	<update id="updateIsPrintStatus"  parameterType="java.lang.String" >
+		update business_order set status='已打印' where id=#{value}
+	</update>
+	<update id="updateRed"  parameterType="java.lang.String" >
+		update business_order set color_flag=1 where id=#{value}
+	</update>
+	<update id="updateBlue"  parameterType="java.lang.String" >
+		update business_order set color_flag=2 where id=#{value}
+	</update>
+	<update id="updateNormal"  parameterType="java.lang.String" >
+		update business_order set color_flag=0 where id=#{value}
+	</update>
+	 <select id="findCount"  parameterType="java.lang.String"  resultType="java.lang.Integer">
+	  ${value}
+	  </select>
+	 
+	<resultMap type='com.gznytm.entity.BusinessOrder' id='BusinessOrder'>
+		<result property='billingTime' column='BILLING_TIME' />
+		<result property='status' column='STATUS' />
+		<result property='oldOrderCode' column='OLD_ORDER_CODE' />
+		<result property='excelIndex' column='EXCEL_INDEX' />
+		<result property='unzeroCode' column='UNZERO_CODE' />
+		<result property='remark' column='REMARK' />
+		<result property='colorFlag' column='COLOR_FLAG' />
+		<result property='materialCode' column='MATERIAL_CODE' />
+		<result property='color' column='COLOR' />
+		<result property='description' column='DESCRIPTION' />
+		<result property='reqCount' column='REQ_COUNT' />
+		<result property='materialSize' column='MATERIAL_SIZE' />
+		<result property='id' column='ID' />
+		<result property='cuttingDieCode' column='CUTTING_DIE_CODE' />
+		<result property='orderid' column='ORDERID' />
+		<result property='requireTime' column='REQUIRE_TIME' />
+		<result property='lastTime' column='LAST_TIME' />
+		<result property='material' column='MATERIAL' />
+		<result property='customer' column='CUSTOMER' />
+		<result property='impTime' column='IMP_TIME' />
+	</resultMap>
+    
+</mapper>

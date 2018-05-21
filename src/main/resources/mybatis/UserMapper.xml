@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.UserMapper">
+	<select id='findUser' resultMap='User'  parameterType='com.gznytm.entity.User'>
+		select id,user_name,password from t_user  where user_name = #{userName} and password=#{password}
+	</select>
+	<select id='findUserByUserName' resultMap='User'  parameterType='com.gznytm.entity.User'>
+		select id,user_name,password from t_user  where user_name = #{userName}
+	</select>
+	<select id='findById' resultMap='User'  parameterType='java.lang.String'>
+		select id,user_name,password from t_user  where id = #{id}
+	</select>
+	<resultMap type='com.gznytm.entity.User' id='User'>
+		<result property='id' column='id'/>
+		<result property='userName' column='user_name'/>
+		<result property='password' column='password'/>
+	</resultMap>
+</mapper>

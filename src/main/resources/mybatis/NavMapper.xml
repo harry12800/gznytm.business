@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.NavMapper">
+	<select id='findById' resultMap='Nav'  parameterType='java.lang.String'>
+		select id,name,type,parent_id,description,sort,url,target,is_leaf,application_id from nav  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='Nav' >
+		${value}
+	</select>
+	<select id='findAll' resultMap='Nav' >
+		select id,name,type,parent_id,description,sort,url,target,is_leaf,application_id from nav
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.Nav'>
+		insert into nav(id,name,type,parent_id,description,sort,url,target,is_leaf,application_id)
+		values(#{id},#{name},#{type},#{parentId},#{description},#{sort},#{url},#{target},#{isLeaf},#{applicationId})
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.Nav'>
+		update nav set name=#{name},type=#{type},parent_id=#{parentId},description=#{description},sort=#{sort},url=#{url},target=#{target},is_leaf=#{isLeaf},application_id=#{applicationId} where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from nav where  ${value}
+	</delete>
+	 <select id="executeSql"  parameterType="java.lang.String"  resultMap="Nav">
+	  ${value}
+	  </select>
+	<resultMap type='com.gznytm.entity.Nav' id='Nav'>
+		<result property='id' column='id'/>
+		<result property='name' column='name'/>
+		<result property='type' column='type'/>
+		<result property='parentId' column='parent_id'/>
+		<result property='description' column='description'/>
+		<result property='sort' column='sort'/>
+		<result property='url' column='url'/>
+		<result property='target' column='target'/>
+		<result property='isLeaf' column='is_leaf'/>
+		<result property='applicationId' column='application_id'/>
+	</resultMap>
+</mapper>

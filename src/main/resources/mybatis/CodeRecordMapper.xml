@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.CodeRecordMapper">
+	<select id='findById' resultMap='CodeRecord'  parameterType='java.lang.String'>
+		select id,userid,create_time,import_result from code_record  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='CodeRecord' >
+		${value}
+	</select>
+	<select id='findAll' resultMap='CodeRecord' >
+		select id,userid,create_time,import_result from code_record
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.CodeRecord'>
+		insert into code_record(id,userid,create_time,import_result)
+		values(#{id},#{userid},#{createTime},#{importResult})
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.CodeRecord'>
+		update code_record set userid=#{userid},create_time=#{createTime},import_result=#{importResult},count=#{count} where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from code_record where  ${value}
+	</delete>
+	<resultMap type='com.gznytm.entity.CodeRecord' id='CodeRecord'>
+		<result property='id' column='id'/>
+		<result property='userid' column='userid'/>
+		<result property='createTime' column='create_time'/>
+		<result property='importResult' column='import_result'/>
+	</resultMap>
+</mapper>

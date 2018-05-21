@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.ConfigMapper">
+	<select id="findAll" resultType="com.gznytm.entity.Config" >
+		select * from config order by sort
+	</select>
+	<insert id="insert" parameterType="com.gznytm.entity.Config">
+		insert into config(id,param_name,param_value,remark,sort,real_name,prompt) values(#{id},#{param_name},#{param_value},#{remark},#{sort},#{real_name},#{prompt})
+	</insert>
+	<select id="findById" resultType="com.gznytm.entity.Config" parameterType="java.lang.String" >
+		select * from config where id = #{id}
+	</select>
+	<update id="updatePath" parameterType="com.gznytm.entity.Config" >
+		update config set param_value=#{param_value} where id=#{id}
+	</update>
+	<insert id="save" parameterType="com.gznytm.entity.Config" >
+		insert into config(id,real_name,param_name,param_value,sort,remark,prompt,type)
+		values (#{id},#{real_name},#{param_name},#{param_value},#{sort},#{remark},#{prompt},#{type})
+	</insert>
+	
+</mapper>

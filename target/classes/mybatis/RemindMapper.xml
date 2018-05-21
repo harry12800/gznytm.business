@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gznytm.mapper.RemindMapper">
+	<select id='findById' resultMap='Remind'  parameterType='java.lang.String'>
+		select  id,title,detail,type,create_time,update_time,lunar,time from remind  where id = #{id}
+	</select>
+	<select id='findBySql' parameterType='java.lang.String'  resultMap='Remind' >
+		 ${value}
+	</select>
+	<select id='findAll' resultMap='Remind' >
+		select id,idtitle,titledetail,detailtype,typecreate_time,create_timeupdate_time,update_timelunar,lunar from remind
+	</select>
+	<insert id='save' parameterType='com.gznytm.entity.Remind'>
+		insert into remind(
+		 id,  title,  detail,  type,  create_time,  update_time,  lunar,   time)
+		values(#{id},
+		#{title},
+		#{detail},
+		#{type},
+		#{createTime},
+		#{updateTime},
+		#{lunar},
+		#{time}
+		)
+	</insert>
+	<update id='update' parameterType='com.gznytm.entity.Remind'>
+		update remind set
+		 id=#{id},
+		 		 title=#{title},
+		 		 detail=#{detail},
+		 		 type=#{type},
+		 		 create_time=#{createTime},
+		 		 update_time=#{updateTime},
+		 		 lunar=#{lunar},
+		 		 
+		 time=#{time}
+		 where id=#{id}
+	</update>
+	<delete id='deleteByIds' parameterType='java.lang.String'>
+		delete from remind where  #{value}
+	</delete>
+	<resultMap type='com.gznytm.entity.Remind' id='Remind'>
+			<result property='id' column='id'/>
+			<result property='title' column='title'/>
+			<result property='detail' column='detail'/>
+			<result property='type' column='type'/>
+			<result property='createTime' column='create_time'/>
+			<result property='updateTime' column='update_time'/>
+			<result property='lunar' column='lunar'/>
+			<result property='time' column='time'/>
+	</resultMap>
+</mapper>
+	
