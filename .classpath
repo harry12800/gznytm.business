@@ -1,65 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry combineaccessrules="false" kind="src" path="/harry12800.develper"/>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="src/main/resources"/>
-	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/harry12800.dbhelper"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/harry12800.tools"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/harry12800.j2se"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/harry12800.wordexcel"/>
-	<classpathentry kind="lib" path="lib/asm-4.2.jar"/>
-	<classpathentry kind="lib" path="lib/cglib-3.1.jar"/>
-	<classpathentry kind="lib" path="lib/common-annotations.jar"/>
-	<classpathentry kind="lib" path="lib/commons-dbcp-1.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-dbcp.jar"/>
-	<classpathentry kind="lib" path="lib/commons-fileupload-1.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-1.3.2.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-api-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-pool-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-pool-1.6.jar"/>
-	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="lib/freemarker-2.3.8.jar"/>
-	<classpathentry kind="lib" path="lib/jacob.jar"/>
-	<classpathentry kind="lib" path="lib/JTattoo.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-api-2.2.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-core-2.2.jar"/>
-	<classpathentry kind="lib" path="lib/mybatis-3.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/mybatis-3.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/mybatis-spring-1.2.0.jar"/>
-	<classpathentry kind="lib" path="lib/mybatis-spring-1.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.24-bin.jar"/>
-	<classpathentry kind="lib" path="lib/ognl-2.6.11.jar"/>
-	<classpathentry kind="lib" path="lib/ojdbc5.jar"/>
-	<classpathentry kind="lib" path="lib/poi-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="lib/poi-excelant-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="lib/poi-ooxml-schemas-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="lib/poi-scratchpad-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="lib/slf4j-api-1.7.12.jar"/>
-	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.12.jar"/>
-	<classpathentry kind="lib" path="lib/spring-aop-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-aspects-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-beans-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-support-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-core-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-expression-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-jdbc-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-orm-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-oxm-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-test-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-tx-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-web-3.2.3.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
-	<classpathentry kind="lib" path="lib/struts2-core-2.0.8.jar"/>
-	<classpathentry kind="lib" path="lib/xmlbeans-2.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/xwork-2.0.3.jar"/>
-	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/browser-3.2.100-v20070524A.jar"/>
-	<classpathentry kind="lib" path="lib/jintellitype-1.3.9.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
