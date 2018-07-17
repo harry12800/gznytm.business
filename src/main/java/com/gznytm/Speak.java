@@ -8,7 +8,7 @@ import com.jacob.com.Variant;
 public class Speak {  
   
     public static void main(String[] args) throws IOException {  
-         
+          
         ActiveXComponent sap = new ActiveXComponent("Sapi.SpVoice");  
         Dispatch sapo = sap.getObject();  
         try {  
